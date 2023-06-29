@@ -351,54 +351,53 @@ const Shopping = () => {
               Personal Info
             </label>
             <div className="flex">
-              <div className="relative w-6/12 flex-shrink-0">
-              <div className="input-container">
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={input.name}
-                    onChange={event => handleChange(event)}
-                    className="mr-3 mb-1 w-full rounded-md border border-gray-200 px-2 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                    placeholder="First name"
-                  />
-                  {errors.name && (
-                    <p className=" mb-1 error">
-                      <strong>{errors.name}</strong>
-                    </p>
-                  )}
-                  <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
-                    <svg
-                      className="h-4 w-4 text-gray-400"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                    >
-                      <AiOutlineUser />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+  <div className="relative w-6/12 flex-shrink-0">
+    <div className="input-container">
+      <input
+        type="text"
+        id="name"
+        name="name"
+        value={input.name}
+        onChange={event => handleChange(event)}
+        className="mr-3 mb-1 w-full rounded-md border border-gray-200 px-2 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+        placeholder="First name"
+      />
+      {errors.name && (
+        <p className="mb-1 error">
+          <strong>{errors.name}</strong>
+        </p>
+      )}
+      <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+        <svg
+          className="h-4 w-4 text-gray-400"
+          width="16"
+          height="16"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <AiOutlineUser />
+        </svg>
+      </div>
+    </div>
+  </div>
 
-              <div className="input-container">
-              <input
-                type="text"
-                name="lastName"
-                value={input.lastName}
-                onChange={event => handleChange(event)}
-                className="w-full ml-3 rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                placeholder="Last Name"
-              />
+  <div className="input-container">
+    <input
+      type="text"
+      name="lastName"
+      value={input.lastName}
+      onChange={event => handleChange(event)}
+      className="mr-3 ml-2  mb-1 w-full rounded-md border border-gray-200 px-9 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+      placeholder="Last Name"
+    />
 
-              {errors.lastName && (
-                    <p className=" mb-1 error">
-                      <strong>{errors.lastName}</strong>
-                    </p>
+    {errors.lastName && (
+      <p className="mb-1 error">
+        <strong>{errors.lastName}</strong>
+      </p>
     )}
-            </div>
-            
-            </div>
+  </div>
+</div>
             <br/>
             <div className="relative">
               <input
@@ -492,7 +491,7 @@ const Shopping = () => {
                 name="zip"
                 value={input.zip}
                 onChange={event => handleChange(event)}
-                className="mr-1 mb-2 rounded-md border border-gray-200 px-3 py-3 text-sm shadow-sm outline-none sm:w-5/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                className=" mr-1  mb-1  rounded-md border border-gray-200 px-1 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="ZIP"
                
               />
@@ -509,7 +508,7 @@ const Shopping = () => {
                 name="city"
                 value={input.city}
                     onChange={event => handleChange(event)}
-                className="mr-1 rounded-md border border-gray-200 px-3 py-3 text-sm shadow-sm outline-none sm:w-7/8 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                    className=" mr-1  mb-1  rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="City"
               />
 
@@ -527,11 +526,11 @@ const Shopping = () => {
                 name="state"
                 value={input.state}
                     onChange={event => handleChange(event)}
-                className="mr-1 flex-shrink-0 rounded-md border border-gray-200 px-3 py-3 text-sm shadow-sm outline-none sm:w-7/8 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                    className=" mr-1  mb-1  rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="State"
               />
                {errors.state && (
-                                  <p className=" mb-1 mt-2 error">
+                                  <p className=" text-2xs mb-1 mt-2 error">
                                  <strong>{errors.state}</strong>
                                   </p>
                   )}
