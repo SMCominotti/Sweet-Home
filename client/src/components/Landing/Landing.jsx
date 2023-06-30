@@ -25,7 +25,7 @@ const Landing = () => {
           >
             <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-neutral-700 via-transparent"></div>
             <div className="absolute inset-x-0 top-0 py-5 text-center text-white md:block select-none">
-              <h1 className="text-5xl drop-shadow-2xl">Welcome to Sweet Home</h1>
+              <h1 className="text-5xl drop-shadow-2xl capitalize" style={{ textShadow: '2px 2px 4px #000000' }}>Welcome to Sweet Home</h1>
             </div>
             <img
               src="https://www.fabmodula.com/images/Newbanner1.jpg"
@@ -42,9 +42,9 @@ const Landing = () => {
           >
             <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-neutral-700 via-transparent"></div>
             <div className="absolute inset-x-0 top-0 py-5 text-center text-white md:block select-none">
-              <h5 className="text-4xl drop-shadow-2xl">Explore our shop</h5>
+              <h5 className="text-4xl drop-shadow-2xl capitalize" style={{ textShadow: '2px 2px 4px #000000' }}>Explore our shop</h5>
               <br />
-              <p className="drop-shadow-4xl">Take a look at what we have for you</p>
+              <p className="drop-shadow-2xl capitalize" style={{ textShadow: '2px 2px 4px #000000' }}>Take a look at what we have for you</p>
             </div>
             <img
               src="https://www.fabmodula.com/images/Newbanner4.jpg"
@@ -61,9 +61,9 @@ const Landing = () => {
           >
             <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-neutral-700 via-transparent"></div>
             <div className="absolute inset-x-0 top-0 py-5 text-center text-white md:block select-none">
-              <h5 className="text-5xl drop-shadow-2xl">Acquire real quality</h5>
+              <h5 className="text-5xl drop-shadow-2xl capitalize" style={{ textShadow: '2px 2px 4px #000000' }}>Acquire real quality</h5>
               <br />
-              <p className="drop-shadow-2xl">Discover the trending top-quality softy furniture</p>
+              <p className="drop-shadow-2xl capitalize" style={{ textShadow: '2px 2px 4px #000000' }}>Discover the trending top-quality softy furniture</p>
             </div>
             <img
               src="https://www.fabmodula.com/images/Newbanner3.jpg"

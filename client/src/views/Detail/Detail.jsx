@@ -330,7 +330,10 @@ const Detail = () => {
               ) : (
                 <>
                   <h1 className="text-2xl font-semibold">Reviews</h1>
-                  {product?.review?.map((review) => (
+                  {product?.review?.length === 0 ? ( <p className="text-gray-400 flex items-center justify-center">
+                No reviews available for this product.
+              </p>
+            ) :  product?.review?.map((review) => (
                     <div
                       className="py-8 text-left border px-4 m-2"
                       key={review._id}

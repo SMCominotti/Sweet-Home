@@ -1,34 +1,57 @@
 .ordAndFil1 {
-    border-right: 1px solid black;
-    padding: 7px;
+  border-right: 1px solid black;
+  padding: 7px;
 }
 
 .ordAndFil2 {
-    border-right: 1px solid black;
-    padding: 7px;
+  border-right: 1px solid black;
+  padding: 7px;
 }
 
 .ordAndFil3 {
-    padding: 7px;
+  padding: 7px;
 }
 
 .cards {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 768px) {
-    .cards {
-      gap: 8px;
-    }
+  .cards {
+    gap: 8px;
   }
-  
-  @media (max-width: 480px) {
-    .cards {
-      gap: 4px;
-    }
+}
+
+@media (max-width: 480px) {
+  .cards {
+    gap: 4px;
   }
-  
+}
+
+.loader {
+  border-top-color: #3498db;
+  -webkit-animation: spinner 1.5s linear infinite;
+  animation: spinner 1.5s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

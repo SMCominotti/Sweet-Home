@@ -16,11 +16,6 @@ const Cards = ({ _id, name, image, price, category }) => {
     setInCart(isProductInCart);
   }, [isProductInCart]);
 
-  // const handleShoppingCart = () => {
-  //   setInCart(true);
-  //   dispatch(addtoCart({ _id, name, image, price }));
-  // };
-
   const { user } = useAuth();
   const [userId, setUserId] = useState(null);
   useEffect(() => {
@@ -63,13 +58,7 @@ const handleSubmit = () => {
       };
       dispatch(postShoppingCart(newCart));
     }
-  };
-
-  // function handleClick(event) {
-  //   handleSubmit(event);
-  //   handleShoppingCart();
-  // }
-
+  }
 
   return (
     <div>
