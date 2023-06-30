@@ -485,59 +485,56 @@ const Shopping = () => {
             </div>
 
             <div className="mt-3 relative flex-shrink-0 flex">
-              <div className="input-container">
-              <input
-                type="text"
-                id="zip"
-                name="zip"
-                value={input.zip}
-                onChange={event => handleChange(event)}
-                className="mr-1 mb-2 rounded-md border border-gray-200 px-3 py-3 text-sm shadow-sm outline-none sm:w-5/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                placeholder="ZIP"
-               
-              />
-               {errors.zip && (
-                  <p className=" mb-1 error">
-                    <strong>{errors.zip}</strong>
-                  </p>
-                           )}
-              </div>
-              <div className="input-container">
-              <input
-                type="text"
-                id="city"
-                name="city"
-                value={input.city}
-                    onChange={event => handleChange(event)}
-                className="mr-1 rounded-md border border-gray-200 px-3 py-3 text-sm shadow-sm outline-none sm:w-7/8 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                placeholder="City"
-              />
+  <div className="input-container">
+    <input
+      type="text"
+      id="zip"
+      name="zip"
+      value={input.zip}
+      onChange={event => handleChange(event)}
+      className="mr-1 mb-2 w-44 rounded-md border border-gray-200 px-3 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+      placeholder="ZIP"
+    />
+    {errors.zip && (
+      <p className="mb-1 error">
+        <strong>{errors.zip}</strong>
+      </p>
+    )}
+  </div>
+  <div className="input-container">
+    <input
+      type="text"
+      id="city"
+      name="city"
+      value={input.city}
+      onChange={event => handleChange(event)}
+      className="mr-1 w-52 rounded-md border border-gray-200 px-3 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+      placeholder="City"
+    />
 
-              {errors.city && (
-                                  <p className=" mb-1 mt-2 error">
-                                    <strong>{errors.city}</strong>
-                                  </p>
-                  )}
-
-                        </div>
-             <div className="input-container">
-              <input
-                type="text"
-                id="state"
-                name="state"
-                value={input.state}
-                    onChange={event => handleChange(event)}
-                className="mr-1 flex-shrink-0 rounded-md border border-gray-200 px-3 py-3 text-sm shadow-sm outline-none sm:w-7/8 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                placeholder="State"
-              />
-               {errors.state && (
-                                  <p className=" mb-1 mt-2 error">
-                                 <strong>{errors.state}</strong>
-                                  </p>
-                  )}
-              </div>
-            </div>
-
+    {errors.city && (
+      <p className="mb-1 mt-2 error">
+        <strong>{errors.city}</strong>
+      </p>
+    )}
+  </div>
+  <div className="input-container">
+    <input
+      type="text"
+      id="state"
+      name="state"
+      value={input.state}
+      onChange={event => handleChange(event)}
+      className="mr-1 flex-shrink-0 w-30 rounded-md border border-gray-200 px-3 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+      placeholder="State"
+    />
+    {errors.state && (
+      <p className="mb-1 mt-2 error">
+        <strong>{errors.state}</strong>
+      </p>
+    )}
+  </div>
+</div>
             <div className="relative flex">
   <input
     type="text"
