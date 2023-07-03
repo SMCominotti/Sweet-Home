@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postProduct, getCategory } from "../../Redux/actions/actions";
-import { validate } from "../../utils/validate"; //? Validation, work in progress...
+import { validate } from "../../utils/validate";
+import { CloudinaryContext, Image } from "cloudinary-react";
 
 const CreateProduct = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imageURL, setImageURL] = useState("");
+  
   const [input, setInput] = useState({
     name: "",
     price: "",
@@ -34,20 +38,42 @@ const CreateProduct = () => {
       ...prevErrors,
       [name]: error,
     }));
+    if (name === "image") {
+      setSelectedImage(event.target.files[0]);
+    }
+  };
+
+  const handleImageUpload = async (event) => {
+    const file = event.target.files[0];
+
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "SweetHome");
+
+    fetch("https://api.cloudinary.com/v1_1/dt8snufoj/image/upload", {
+      method: "POST",
+      body: data,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        setImageURL(result.secure_url);
+      })
+      .catch((error) => {
+        console.error("Error uploading image:", error);
+      });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const validationErrors = validate(input);
-    //? Convert to number because the back need it
     const price = parseFloat(input.price);
     const stock = parseInt(input.stock);
-    //? Added the category _id into an array
     const category =
       typeof input.category === "string" ? [input.category] : input.category;
     if (Object.keys(validationErrors).length === 0) {
-      //? Send the inputs with the parsed values
-      dispatch(postProduct({ ...input, category, price, stock }));
+      dispatch(
+        postProduct({ ...input, category, price, stock, image: imageURL })
+      );
       setInput({
         name: "",
         price: "",
@@ -58,7 +84,6 @@ const CreateProduct = () => {
       });
     }
   };
-
   return (
     <div className="bg-gray-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       <br />
@@ -177,7 +202,7 @@ const CreateProduct = () => {
               <p className="text-red-500">{errors.description}</p>
             )}
           </div>
-          <div>
+          {/* <div>
             <label
               htmlFor="image"
               className="block text-sm font-medium text-gray-700 mb-1 mx-4"
@@ -194,7 +219,27 @@ const CreateProduct = () => {
               onChange={handleChange}
             />
             {errors.image && <p className="text-red-500">{errors.image}</p>}
-          </div>
+          </div> */}
+          <div>
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleImageUpload}
+        
+      />
+      {imageURL && (
+        <CloudinaryContext cloudName="dt8snufoj"
+        >
+        <Image
+        
+          publicId={imageURL}
+          width="200"
+          height="200"
+          crop="fill"
+        />
+        </CloudinaryContext>
+      )}
+    </div>
           <div className="flex flex-row">
             <button
               type="submit"
