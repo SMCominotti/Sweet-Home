@@ -219,47 +219,38 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                  <tr>
-                    <th scope="col" className="px-4 py-4">
-                      Product name
-                    </th>
-                    <th scope="col" className="px-4 py-3">
-                      Category
-                    </th>
-                    <th scope="col" className="px-4 py-3">
-                      Brand
-                    </th>
-                    <th scope="col" className="px-4 py-3">
-                      Description
-                    </th>
-                    <th scope="col" className="px-4 py-3">
-                      Price
-                    </th>
-                    <th scope="col" className="px-4 py-3">
-                      <span className="sr-only">Actions</span>
-                    </th>
-                  </tr>
-                </thead>
+            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 table">
+              <thead className="text-xs text-gray-700 uppercase  dark:bg-gray-700 dark:text-gray-400">
+                <a  >
+                  <a  className="mr-12 px-4 py-4 text-xs text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400">
+                    Product name
+                  </a>
+                  <a  className="mx-28 px-4 py-4 text-xs text-gray-700 uppercase  dark:bg-gray-700 dark:text-gray-400">
+                    Category
+                  </a>
+                  <a  className="mx-16 px-4 py-4 text-xs text-gray-700 uppercase  dark:bg-gray-700 dark:text-gray-400">
+                    Description
+                  </a>
+                  <a  className="ml-16 px-4 py-4 text-xs text-gray-700 uppercase  dark:bg-gray-700 dark:text-gray-400">
+                    Price
+                  </a>
+                </a>
+              </thead>
+              
                 {productsToDisplay.map((product) => (
-                  <div
+                  <AdminCard
                     key={product._id}
-                    className="flex justify-center w-full "
-                  >
-                    <AdminCard
-                      id={product._id}
-                      name={product.name}
-                      price={product.price}
-                      description={product.description}
-                      image={product.image}
-                      category={product.category.map((el) => el.name)}
-                    />
-                  </div>
+                    id={product._id}
+                    name={product.name}
+                    price={product.price}
+                    description={product.description}
+                    image={product.image}
+                    category={product.category.map((el) => el.name)}
+                  />
                 ))}
-              </table>
-            </div>
+             
+            </table>
+
             <nav
               className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
               aria-label="Table navigation"
