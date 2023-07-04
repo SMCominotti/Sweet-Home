@@ -2,7 +2,7 @@ import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className=" bg-neutral-200">
+    <footer className=" bg-neutral-200 sticky">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="sm:flex sm:items-center sm:justify-between select-none">
           <div>
