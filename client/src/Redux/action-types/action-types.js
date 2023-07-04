@@ -3,6 +3,7 @@ export const ADD_TO_CART = "ADD_TO_CART"
 export const POST_SHOPPING_CART = "POST_SHOPPING_CART"
 export const DELETE_FROM_CART = "DELETE_FROM_CART"
 export const DELETE_ONE_FROM_CART = "DELETE_ONE_FROM_CART"
+export const DELETE_ALL_FROM_CART = "DELETE_ALL_FROM_CART"
 
 //? Product Actions
 export const GET_PRODUCTS = "GET_PRODUCTS"

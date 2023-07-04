@@ -27,9 +27,12 @@ function Navbar() {
     if (user) {
       dispatch(getUserByUid(user.uid)).then((response) => {
         setCompleteUser(response.payload);
+        
       });
     }
   }, [dispatch, user]);
+  
+
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -112,6 +115,7 @@ function Navbar() {
       scrollToSection("mostValuedSection");
     }
   };
+
 
   const handlePuchases = () => {
     closeMenu();
@@ -204,6 +208,8 @@ function Navbar() {
     });
   };
 
+
+
   return (
     <div ref={menuRef} className="sticky top-0 w-full bg-neutral-200 z-50 shadow-sm select-none">
       <div className="py-1 border-b-[1px]">
@@ -244,8 +250,8 @@ function Navbar() {
                   <>
                     {completeUser?.photoURL ? (
                       <img
-                        src={completeUser?.photoURL}
-                        alt={completeUser?.name || "user"}
+                        src={completeUser.photoURL}
+                        alt={completeUser.name || "user"}
                         className="rounded-full w-8 h-8"
                       />
                     ) : (
@@ -257,7 +263,7 @@ function Navbar() {
                     )}
                     <div className="md:py-1 md:px-2 flex flex-row items-center gap-3 cursor-pointer">
                       <h1 className="text-sm md:text-base hidden md:block">
-                        Hi {completeUser?.name || completeUser?.email}
+                        Hi {completeUser.name || completeUser.email}
                       </h1>
                     </div>
                   </>

@@ -9,7 +9,6 @@ import getUserByUid from "../controllers/user/getUserByUid.js";
 import deleteUsers from "../controllers/user/deleteUsers.js";
 import getUserByEmail from "../controllers/user/getUserByEmail.js";
 import putUsers from "../controllers/user/putUsers.js";
-import { getFavoriteProducts } from '../controllers/user/getFavoriteProducts.js';
 
 
 const router = Router();
@@ -20,7 +19,7 @@ router.get("/users", getAllUsers);
 router.get("/users/:id", getUserById);
 router.get("/users/v1/:uid", getUserByUid)
 router.get("/users/v1/email/:email", getUserByEmail)
-router.get("/users/favorites/:uid", getFavoriteProducts);
+
 
 //? Ruta .post
 router.post("/users", postUser);

@@ -45,7 +45,7 @@ const Profile = () => {
     setEmail("");
     setSelectedImage(null);
   };
-  console.log(firstName);
+
   const uploadImage = async (file) => {
     const data = new FormData();
     data.append("file", file);

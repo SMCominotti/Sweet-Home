@@ -80,7 +80,7 @@ const Landing = () => {
                 className="text-5xl drop-shadow-2xl"
                 style={{ textShadow: "1px 1px 1px #000000" }}
               >
-                Acquire real quality
+                Adquire real quality
               </h5>
               <br />
               <p

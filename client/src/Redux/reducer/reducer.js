@@ -29,7 +29,8 @@ import {
   POST_FAVORITES,
   GET_FAVORITES,
   SOFT_DELETE,
-  CLEAN_DETAIL
+  CLEAN_DETAIL,
+  DELETE_ALL_FROM_CART
 } from "../action-types/action-types.js";
 import { productAVG } from "../../utils/logic-ratings";
 
@@ -142,6 +143,7 @@ const reducer = (state = initialState, { type, payload }) => {
       }
     }
 
+
     case DELETE_ONE_FROM_CART: {
       const filterCart = state.shoppingCart.filter(
         (product) => product._id !== payload
@@ -160,7 +162,15 @@ const reducer = (state = initialState, { type, payload }) => {
       };
     }
 
-
+    case DELETE_ALL_FROM_CART: {
+      localStorage.removeItem('cart'); // Vaciar el Local Storage
+    
+      return {
+        ...state,
+        shoppingCart: [], // Vaciar el carrito
+      };
+    }
+    
     case POST_SHOPPING_CART:
       return {
         ...state,
@@ -314,7 +324,8 @@ const reducer = (state = initialState, { type, payload }) => {
     case POST_FAVORITES:
       return {
         ...state,
-      };
+        favorites: [...state.favorites, payload],
+      }
 
     case GET_FAVORITES: {
       const favoritesFromServer = payload;

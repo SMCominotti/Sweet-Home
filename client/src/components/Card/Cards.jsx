@@ -1,4 +1,11 @@
-import { addtoCart, getUserByUid, postShoppingCart, addtoFavorites, postFavorites, removefromFavorites } from "../../Redux/actions/actions.js";
+import {
+  addtoCart,
+  getUserByUid,
+  postShoppingCart,
+  addtoFavorites,
+  postFavorites,
+  removefromFavorites,
+} from "../../Redux/actions/actions.js";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -6,7 +13,6 @@ import PropTypes from "prop-types";
 import { useAuth } from "../../context/authContex.jsx";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 
 const Card = ({ _id, name, image, price, category }) => {
   const dispatch = useDispatch();
@@ -53,25 +59,36 @@ const Card = ({ _id, name, image, price, category }) => {
         name,
         image,
         price,
-      };git 
+      };
       dispatch(addtoFavorites(newFavorite));
       if (userId) {
         const updatedFavorites = {
           user: userId,
-          products: [newFavorite],
+          products: [
+            {
+              product: _id,
+              quantity: 1,
+            },
+          ],
         };
+
         dispatch(postFavorites(updatedFavorites));
       } else {
         const newFavorites = {
-          user: userUid, 
-          products: [newFavorite],
+          user: userUid,
+          products: [
+            {
+              product: _id,
+              quantity: 1,
+            },
+          ],
         };
         dispatch(postFavorites(newFavorites));
       }
     }
     setIsFavorite(!isFavorite);
   };
-  
+
   const allShoppingCart = useSelector((state) => state.shoppingCart);
   const isProductInCart = allShoppingCart?.some(
     (product) => product.id === _id

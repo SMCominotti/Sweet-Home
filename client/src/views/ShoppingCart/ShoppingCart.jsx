@@ -8,11 +8,11 @@ import { AiOutlineUser } from "react-icons/ai";
 import { BsTelephone, BsHouse } from "react-icons/bs";
 import { useAuth } from "../../context/authContex";
 import { useNavigate } from "react-router-dom";
-import { removefromCart, addtoCart, removeOneFromCart, postOrder, getUserByUid } from "../../Redux/actions/actions";
+import { removefromCart, addtoCart, removeOneFromCart, postOrder, getUserByUid, removeAllFromCart } from "../../Redux/actions/actions";
 import { getTotalPrice, calculateTotal } from "../../utils/totalprice";
 import fedexLogo from "../../assets/image/Fedex-logo.jpeg";
 import dhlLogo from "../../assets/image/DHL-Logo.png";
-import emailjs from "emailjs-com";
+//import emailjs from "emailjs-com";
 
 import "./ShoppingCart.css";
 
@@ -226,8 +226,9 @@ const Shopping = () => {
           })
         ),
       };
-      emailjs
-      .sendForm("service_ndc6jsv", "template_hal256s", event.target, "_6alTseIIZ36HGhIC")
+      dispatch(removeAllFromCart());
+      //emailjs
+      //.sendForm("service_ndc6jsv", "template_hal256s", event.target, "_6alTseIIZ36HGhIC")
       dispatch(postOrder(order));
     }
   }

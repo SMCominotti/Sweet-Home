@@ -34,8 +34,8 @@ export function Register() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    emailjs
-    .sendForm("service_ndc6jsv", "template_snuctui", event.target, "_6alTseIIZ36HGhIC")
+    //emailjs
+    //.sendForm("service_ndc6jsv", "template_snuctui", event.target, "_6alTseIIZ36HGhIC")
 
     try {
       const response = await singup(user.email, user.password);
@@ -48,6 +48,7 @@ export function Register() {
         photoURL: response.user.photoURL || messi,
       };
       dispatch(postUser(reUser));
+  
 
       if (user.password !== user.confirmPassword) {
         setError("The passwords are different");
