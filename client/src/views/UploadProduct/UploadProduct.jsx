@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import { uploadProduct, getCategory, getProducts } from "../../Redux/actions/actions";
+import {
+  uploadProduct,
+  getCategory,
+  getProducts,
+} from "../../Redux/actions/actions";
 import { validate } from "../../utils/validate";
 import { CloudinaryContext, Image } from "cloudinary-react";
 import { toast } from "react-toastify";
@@ -36,8 +40,9 @@ const UploadProduct = () => {
     dispatch(getCategory());
     dispatch(getProducts());
     localStorage.setItem("uploadProductInput", JSON.stringify(input));
-    if (!category) {
+    if (category?.length !== 0) {
       window.location.reload();
+      dispatch(getCategory());
     }
   }, [dispatch]);
 

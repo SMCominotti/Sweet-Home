@@ -68,10 +68,19 @@ const Profile = () => {
   const updateImage = async () => {
     if (selectedImage) {
       const result = await uploadImage(selectedImage);
-      const updatedUser = {
-        photoURL: result.secure_url,
-        name: completeUser.name,
-      };
+      let updatedUser;
+      if (firstName !== completeUser.name && firstName !== "") {
+        updatedUser = {
+          photoURL: result.secure_url,
+          name: firstName,
+        };
+      } else {
+        updatedUser = {
+          photoURL: result.secure_url,
+          name: completeUser.name,
+        };
+      }
+
       await dispatch(updateUser(updatedUser, completeUser._id));
     }
   };

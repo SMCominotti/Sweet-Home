@@ -25,6 +25,10 @@ const CreateProduct = () => {
 
   useEffect(() => {
     dispatch(getCategory());
+    if (category?.length !== 0) {
+      window.location.reload();
+      dispatch(getCategory());
+    }
   }, [dispatch]);
 
   const handleChange = (event) => {
