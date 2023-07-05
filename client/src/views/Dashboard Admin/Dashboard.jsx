@@ -137,6 +137,12 @@ const Dashboard = () => {
                       />
                     </svg>
                   </button>
+                  <Link to="/adminDashboard/users">
+                  
+                  <button>
+                    View Users
+                  </button>
+                  </Link>
                   <div
                     id="filterDropdown"
                     className="z-10 hidden w-56 p-3 bg-white rounded-lg shadow dark:bg-gray-700"
