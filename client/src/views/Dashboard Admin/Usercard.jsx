@@ -8,8 +8,8 @@ import { useDispatch } from "react-redux";
 const Usercard = ({ id, name, email }) => {
   const dispatch = useDispatch();
   const [input, setInput] = useState({
-    isAdmin: localStorage.getItem("isAdmin") === "true",
-    isDelete: localStorage.getItem("isDelete") === "true",
+    isAdmin: localStorage.getItem(`isAdmin_${id}`) === "true",
+    isDelete: localStorage.getItem(`isDelete_${id}`) === "true",
   });
 
   useEffect(() => {
@@ -17,32 +17,27 @@ const Usercard = ({ id, name, email }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    localStorage.setItem("isAdmin", input.isAdmin);
-    localStorage.setItem("isDelete", input.isDelete);
-  }, [input.isAdmin, input.isDelete]);
+    localStorage.setItem(`isAdmin_${id}`, input.isAdmin);
+    localStorage.setItem(`isDelete_${id}`, input.isDelete);
+  }, [input.isAdmin, input.isDelete, id]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
 
     setInput((prevInput) => ({
       ...prevInput,
-      isAdmin: name === "admin" ? value === "true" : prevInput.isAdmin,
-      isDelete: name === "disable" ? value === "true" : prevInput.isDelete,
+      [name]: value === "true",
     }));
 
-    if (name === "admin") {
-      dispatch(updateUser({ isAdmin: value === "true" }, id));
-      if (value === "false") {
-        dispatch(updateUser({ isAdmin: false }, id));
-      }
-    }
+    
+  if (name === "isAdmin") {
+    dispatch(updateUser({ isAdmin: value === "true" }, id));
+  }
 
-    if (name === "disable") {
-      dispatch(updateUser({ isDelete: value === "true" }, id));
-      if (value === "false") {
-        dispatch(updateUser({ isDelete: false }, id));
-      }
-    }
+  if (name === "isDelete") {
+    dispatch(updateUser({ isDelete: value === "true" }, id));
+  }
+
   };
 
   const handleSubmit = (event) => {
@@ -65,33 +60,33 @@ const Usercard = ({ id, name, email }) => {
       <td className="px-4 py-3 flex justify-end items-start space-x-2">
         <form onSubmit={handleSubmit}>
           <label
-            htmlFor="admin"
+            htmlFor={`admin_${id}`}
             className="block text-sm font-medium text-gray-700 mb-1 mx-4"
           >
             Admin
           </label>
           <select
-            id="admin"
-            name="admin"
+            id={`admin_${id}`}
+            name="isAdmin"
             className="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             value={input.isAdmin}
             onChange={handleChange}
           >
             <option value={true}>Sí</option>
-            <option value="false">No</option>
+            <option value={false}>No</option>
           </select>
         </form>
 
         <form onSubmit={handleSubmit}>
           <label
-            htmlFor="disable"
+            htmlFor={`disable_${id}`}
             className="block text-sm font-medium text-gray-700 mb-1 mx-4"
           >
             Disable
           </label>
           <select
-            id="disable"
-            name="disable"
+            id={`disable_${id}`}
+            name="isDelete"
             className="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             value={input.isDelete}
             onChange={handleChange}
