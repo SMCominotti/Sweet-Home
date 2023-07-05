@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { uploadProduct, getCategory, getProducts } from "../../Redux/actions/actions";
 import { validate } from "../../utils/validate";
 import { CloudinaryContext, Image } from "cloudinary-react";
+import { toast } from "react-toastify";
 
 
 const UploadProduct = () => {
@@ -124,6 +125,7 @@ const UploadProduct = () => {
         category: [],
         isDelete: false,
       });
+      toast.success('Edited successfully');
     }
   };
 
@@ -292,6 +294,7 @@ const UploadProduct = () => {
             </select>
           </div>
           <div>
+            
             <button
               type="submit"
               // onClick={handleImageUpload}
@@ -299,12 +302,15 @@ const UploadProduct = () => {
             >
               Confirm edit
             </button>
+            <Link to={'/adminDashboard'}>
+            
             <button
               type="submit"
               className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700  mx-24"
             >
-              Discard
+              Discard/Back
             </button>
+            </Link>
           </div>
         </form>
       </div>

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postProduct, getCategory } from "../../Redux/actions/actions";
 import { validate } from "../../utils/validate"; //? Validation, work in progress...
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CreateProduct = () => {
   const [input, setInput] = useState({
@@ -56,6 +58,7 @@ const CreateProduct = () => {
         image: "",
         category: [],
       });
+      toast.success("Created successfully"); 
     }
   };
 
@@ -202,12 +205,14 @@ const CreateProduct = () => {
             >
               Create Product
             </button>
+            <Link to={'/adminDashboard'}>
             <button
               type="submit"
               className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700  mx-24"
             >
               Discard
             </button>
+            </Link>
           </div>
         </form>
       </div>
