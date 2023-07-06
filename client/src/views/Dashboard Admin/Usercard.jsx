@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllUsers, updateUser } from "../../Redux/actions/actions";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
 const Usercard = ({ id, name, email }) => {
   const dispatch = useDispatch();
@@ -29,10 +30,12 @@ const Usercard = ({ id, name, email }) => {
 
     if (name === "isAdmin") {
       dispatch(updateUser({ isAdmin: value === "true" }, id));
+      toast.success("User updated successfully")
     }
 
     if (name === "isDelete") {
       dispatch(updateUser({ isDelete: value === "true" }, id));
+      toast.success("User updated successfully")
     }
   };
 
